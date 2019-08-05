@@ -9,7 +9,7 @@ class GamesController < ApplicationController
 
   def score
     @word = params[:word].upcase
-    if english?(@word)
+    if english?(@word) && in_grid?
       @score = "Congratulations! #{@word} is a valid English word!"
     elsif !in_grid?
       @score = "#{@word} is not in the grid!"
